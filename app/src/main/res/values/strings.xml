@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">yoga</string>
+    <string name="home_description">Anyone can practice meditation. Even you. Meditation allows you to create a space between yourself and each of your thoughts.</string>
+    <string name="home_button">Start Now</string>
+    <string name="background_image">home image</string>
+    <string name="home_title">Welcome in medito</string>
+</resources>
