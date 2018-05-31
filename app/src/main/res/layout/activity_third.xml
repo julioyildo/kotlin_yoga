@@ -50,7 +50,7 @@
         tools:layout_editor_absoluteY="218dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/title_music"
         android:layout_width="wrap_content"
         android:layout_height="41dp"
         android:layout_marginTop="36dp"
@@ -59,12 +59,5 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <fragment
-        android:id="@+id/fragment"
-        android:layout_width="217dp"
-        android:layout_height="74dp"
-        tools:layout_editor_absoluteX="63dp"
-        tools:layout_editor_absoluteY="439dp" />
 
 </android.support.constraint.ConstraintLayout>

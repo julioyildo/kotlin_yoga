@@ -53,8 +53,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:onClick="randomMe"
-        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintEnd_toStartOf="@+id/btn_stressed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:srcCompat="@drawable/button_bg_rounded_corners" />
@@ -91,7 +90,7 @@
         app:srcCompat="@drawable/lune" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/btn_stressed"
         android:layout_width="155dp"
         android:layout_height="119dp"
         android:layout_marginEnd="16dp"
@@ -111,9 +110,9 @@
         android:layout_marginStart="8dp"
         android:text="@string/btn_stressed"
         android:textColor="@android:color/background_dark"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintStart_toStartOf="@+id/imageView7" />
+        app:layout_constraintBottom_toBottomOf="@+id/btn_stressed"
+        app:layout_constraintEnd_toEndOf="@+id/btn_stressed"
+        app:layout_constraintStart_toStartOf="@+id/btn_stressed" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -124,10 +123,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="@+id/btn_stressed"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/imageView7"
+        app:layout_constraintStart_toStartOf="@+id/btn_stressed"
+        app:layout_constraintTop_toTopOf="@+id/btn_stressed"
         app:layout_constraintVertical_bias="0.65"
         app:srcCompat="@drawable/storm" />
 
@@ -145,8 +144,8 @@
         android:layout_width="155dp"
         android:layout_height="118dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="@+id/btn_stressed"
+        app:layout_constraintTop_toBottomOf="@+id/btn_stressed"
         app:srcCompat="@drawable/button_bg_rounded_corners" />
 
     <ImageView

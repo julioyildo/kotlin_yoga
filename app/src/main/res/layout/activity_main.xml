@@ -66,7 +66,6 @@
         android:layout_marginTop="16dp"
         android:background="@color/buttonColor"
         android:elevation="3dp"
-        android:onClick="randomMe"
         android:text="@string/home_button"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,6 +73,6 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_description"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.043" />
 
 </android.support.constraint.ConstraintLayout>
