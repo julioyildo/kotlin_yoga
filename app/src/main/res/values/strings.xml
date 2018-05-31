@@ -4,4 +4,13 @@
     <string name="home_button">Start Now</string>
     <string name="background_image">home image</string>
     <string name="home_title">Welcome in medito</string>
+    <string name="category_title">Themes to meditate</string>
+    <string name="category_description">Be aware of the many benefits of meditation associated with regular practice.</string>
+    <string name="btn_sleep">Sleeping better</string>
+    <string name="btn_stressed">Less stressed</string>
+    <string name="btn_calm">Finding calm</string>
+    <string name="btn_focused">More focused</string>
+    <string name="btn_anxiety">Managing anxiety</string>
+    <string name="btn_checking">Just checking</string>
+
 </resources>

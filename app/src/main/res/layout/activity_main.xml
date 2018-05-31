@@ -66,6 +66,7 @@
         android:layout_marginTop="16dp"
         android:background="@color/buttonColor"
         android:elevation="3dp"
+        android:onClick="randomMe"
         android:text="@string/home_button"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
