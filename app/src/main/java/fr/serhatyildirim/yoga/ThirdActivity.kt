@@ -14,6 +14,10 @@ class ThirdActivity : AppCompatActivity() {
     companion object {
         val EXTRA_VALUE = "EXTRA_VALUE"
 
+        val tets = {
+
+        }
+
         fun createIntent(context: Context, value: Int): Intent {
             return Intent(context, ThirdActivity::class.java).putExtra(EXTRA_VALUE, value)
         }

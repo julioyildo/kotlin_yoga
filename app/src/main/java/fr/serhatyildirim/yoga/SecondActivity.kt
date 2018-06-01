@@ -31,12 +31,12 @@ class SecondActivity : AppCompatActivity() {
 
         when(index) {
             MENU_SLEEP -> {
-                val value = 42 // valeur arbitraire
+                val value = MENU_SLEEP // valeur arbitraire
                 startActivity(ThirdActivity.createIntent(this, value))
             }
 
             MENU_STRESS -> {
-                val value = 2 // valeur arbitraire
+                val value = MENU_STRESS // valeur arbitraire
                 startActivity(ThirdActivity.createIntent(this, value))
             }
         }
