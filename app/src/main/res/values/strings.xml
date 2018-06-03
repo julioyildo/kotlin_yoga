@@ -12,5 +12,6 @@
     <string name="btn_focused">More focused</string>
     <string name="btn_anxiety">Managing anxiety</string>
     <string name="btn_checking">Just checking</string>
+    <string name="song_name">music</string>
 
 </resources>
