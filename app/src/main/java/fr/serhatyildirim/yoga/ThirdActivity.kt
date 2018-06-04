@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
+import android.widget.Toast
 
 // Android extensions import statements for the two views to update
 
@@ -31,7 +32,7 @@ import android.widget.TextView
         setContentView(R.layout.activity_third)
 
         //showRandomNumber()
-        mediaPlayer = MediaPlayer.create(this, R.raw.meditation_music)
+        mediaPlayer = MediaPlayer.create(this, R.raw.zaza)
         leftTime = findViewById(R.id.currentTime)
         rightTime = findViewById(R.id.duration)
         prevButton = findViewById<Button>(R.id.prevButton)
@@ -42,6 +43,31 @@ import android.widget.TextView
         playButton?.setOnClickListener{clickMenu(playButton!!)}
        // prevButton?.setOnClickListener(this)
        // nextButton?.setOnClickListener(this)
+
+
+        seekBar?.max = mediaPlayer?.duration!!
+        seekBar?.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+
+            override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
+                // Display the current progress of SeekBar
+                if (b){
+                    mediaPlayer?.seekTo(i)
+                }
+               // leftTime?.text = "Progress : $i"
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+                // Do something
+               // Toast.makeText(applicationContext,"start tracking",Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                // Do something
+               // Toast.makeText(applicationContext,"stop tracking",Toast.LENGTH_SHORT).show()
+            }
+        })
+
+
 
 
     }
