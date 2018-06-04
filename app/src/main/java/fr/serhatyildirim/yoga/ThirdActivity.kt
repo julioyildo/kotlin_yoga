@@ -7,11 +7,15 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
+import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 // Android extensions import statements for the two views to update
 
@@ -53,7 +57,13 @@ import android.widget.Toast
                 if (b){
                     mediaPlayer?.seekTo(i)
                 }
-               // leftTime?.text = "Progress : $i"
+
+                var dateFormat =  SimpleDateFormat("mm:ss")
+                var currentPos = mediaPlayer?.currentPosition
+                var  duration = mediaPlayer?.duration
+
+                leftTime?.text = dateFormat.format(currentPos)
+                rightTime?.text = dateFormat.format(duration)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {
@@ -112,7 +122,7 @@ import android.widget.Toast
    private fun pauseMusic(){
         if (mediaPlayer != null){
            mediaPlayer?.pause()
-           playButton?.setBackgroundResource(android.R.drawable.ic_media_pause)
+           playButton?.setBackgroundResource(android.R.drawable.ic_media_play)
         }
     }
 
@@ -121,7 +131,7 @@ import android.widget.Toast
     private fun startMusic() {
         if (mediaPlayer != null){
             mediaPlayer?.start()
-            playButton?.setBackgroundResource(android.R.drawable.ic_media_play)
+            playButton?.setBackgroundResource(android.R.drawable.ic_media_pause)
         }
     }
 
@@ -150,3 +160,4 @@ import android.widget.Toast
 
 
 }
+
