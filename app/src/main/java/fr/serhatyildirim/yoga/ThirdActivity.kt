@@ -5,14 +5,26 @@ import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
 
 // Android extensions import statements for the two views to update
 
-class ThirdActivity : AppCompatActivity() {
+ class ThirdActivity : AppCompatActivity() {
+
+
+     private var mediaPlayer: MediaPlayer? = null
+    private var leftTime:TextView? = null
+    private var rightTime: TextView? = null
+    private var seekBar: SeekBar? = null
+    private var prevButton:Button? = null
+    private var playButton:Button? = null
+    private var nextButton:Button? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,32 +39,13 @@ class ThirdActivity : AppCompatActivity() {
         nextButton = findViewById<Button>(R.id.nextButton)
         seekBar = findViewById<SeekBar>(R.id.seekBar)
 
+        playButton?.setOnClickListener{clickMenu(playButton!!)}
+       // prevButton?.setOnClickListener(this)
+       // nextButton?.setOnClickListener(this)
+
 
     }
 
-    private var mediaPlayer: MediaPlayer? =null
-    private var leftTime:TextView? = null
-    private var rightTime: TextView? = null
-    private var seekBar: SeekBar? = null
-    private var prevButton:Button? = null
-    private var playButton:Button? = null
-    private var nextButton:Button? = null
-
-
-
-    //init {
-
-       // this.mediaPlayer = MediaPlayer.create(this, R.raw.meditation_music)
-       // this.leftTime   = findViewById(R.id.currentTime)
-        //this.rightTime  = findViewById(R.id.duration)
-        //this.playButton = findViewById(R.id.play_btn)
-
-        //this.nextButton = findViewById(R.id.nextButton)
-        //this.seekBar    = findViewById(R.id.seekBar)
-
-
-
-   // }
 
 
     companion object {
@@ -65,37 +58,50 @@ class ThirdActivity : AppCompatActivity() {
 
 
 
+     private fun  clickMenu(view: View) {
 
-   /* private fun clickMenu(view: TextView) {
-
-        when(view) {
+         when(view) {
             prevButton->{
 
             }
             playButton -> {
+                if(mediaPlayer?.isPlaying!!) {
+                    this.pauseMusic()
 
+                } else {
+                    this.startMusic()
+
+                }
             }
 
             nextButton -> {
 
             }
 
-
-
         }
     }
-*/
-    //public void pauseMusic() {
 
-    //}
 
-    //public void startMusic() {
 
-    //}
+   private fun pauseMusic(){
+        if (mediaPlayer != null){
+           mediaPlayer?.pause()
+           playButton?.setBackgroundResource(android.R.drawable.ic_media_pause)
+        }
+    }
+
+
+
+    private fun startMusic() {
+        if (mediaPlayer != null){
+            mediaPlayer?.start()
+            playButton?.setBackgroundResource(android.R.drawable.ic_media_play)
+        }
+    }
 
 //Other class code...
 
-    fun showRandomNumber() {
+    //fun showRandomNumber() {
         // Get the count from the intent extras
        // val count = intent.getIntExtra(EXTRA_VALUE, 0)
 
@@ -114,7 +120,7 @@ class ThirdActivity : AppCompatActivity() {
         // Substitute the max value into the string resource
         // for the heading, and update the heading
         /*textview_label.text = getString(R.string.random_heading, count)*/
-    }
+   // }
 
 
 }
