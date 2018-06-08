@@ -3,6 +3,7 @@ package fr.serhatyildirim.yoga
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Typeface
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
@@ -12,9 +13,9 @@ import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
 import fr.serhatyildirim.yoga.R.id.seekBar
-import java.lang.reflect.Array
+import kotlinx.android.synthetic.main.activity_second.*
+import kotlinx.android.synthetic.main.activity_third.*
 import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
 // Android extensions import statements for the two views to update
@@ -24,7 +25,6 @@ data class Music(var name: String, var song: MediaPlayer, var position: Int)
 
      private var titleMusic: TextView? = null
      private var currentSession: TextView? = null
-     //private var  currentMusicInformations:  =null
      private var mediaPlayer: MediaPlayer? = null
      private var leftTime:TextView? = null
      private var rightTime: TextView? = null
@@ -33,9 +33,8 @@ data class Music(var name: String, var song: MediaPlayer, var position: Int)
      private var playButton:Button? = null
      private var nextButton:Button? =null
      private var handler: Handler? = null
-
-
      private var musics: ArrayList<Music>? = null
+     private var sectionIndex: Int = 0
      private var index: Int = 0
 
 
@@ -46,6 +45,11 @@ data class Music(var name: String, var song: MediaPlayer, var position: Int)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_third)
 
+
+        var mercuryFont = Typeface.createFromAsset(assets, "fonts/mercury_bold.ttf")
+        var GeomanistLightFont = Typeface.createFromAsset(assets, "fonts/Geomanist-Book.otf")
+        title_music.typeface = mercuryFont
+        track.typeface = GeomanistLightFont
 
         this.musics = arrayListOf(
                 Music("Pour un beau réveille",  MediaPlayer.create(this, R.raw.matinal), 0),
@@ -71,7 +75,7 @@ data class Music(var name: String, var song: MediaPlayer, var position: Int)
 
         seekBar?.max = mediaPlayer?.duration!!
 
-
+        this.showRandomNumber()
 
         seekBar?.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
@@ -87,18 +91,15 @@ data class Music(var name: String, var song: MediaPlayer, var position: Int)
                 leftTime?.text = dateFormat.format(currentPos)
                 rightTime?.text = dateFormat.format(duration)
             }
-
             override fun onStartTrackingTouch(seekBar: SeekBar) {
                 // Do something
                // Toast.makeText(applicationContext,"start tracking",Toast.LENGTH_SHORT).show()
             }
-
             override fun onStopTrackingTouch(seekBar: SeekBar) {
                 // Do something
                // Toast.makeText(applicationContext,"stop tracking",Toast.LENGTH_SHORT).show()
             }
         })
-
 
         this.setInformation()
     }
@@ -113,6 +114,8 @@ data class Music(var name: String, var song: MediaPlayer, var position: Int)
         fun createIntent(context: Context, value: Int): Intent {
             return Intent(context, ThirdActivity::class.java).putExtra(EXTRA_VALUE, value)
         }
+
+
     }
 
 
@@ -123,7 +126,6 @@ data class Music(var name: String, var song: MediaPlayer, var position: Int)
      // GET MUSIC
      private fun getMusic(){
          this.mediaPlayer = this.musics!![this.index].song
-
      }
 
 
@@ -135,7 +137,6 @@ data class Music(var name: String, var song: MediaPlayer, var position: Int)
 
      // HANDLE BUTTONS CLICKS
      private fun  clickMenu(view: View) {
-
          when(view) {
             prevButton->{
                 this.pauseMusic()
@@ -144,20 +145,15 @@ data class Music(var name: String, var song: MediaPlayer, var position: Int)
                 this.getMusic()
                 this.startMusic()
                 this.setInformation()
-
             }
             playButton -> {
                 this.getMusic()
                 if(mediaPlayer?.isPlaying!!) {
                     this.pauseMusic()
-
-
                 } else {
                     this.startMusic()
-
                 }
             }
-
             nextButton -> {
                 this.pauseMusic()
                 this.index = this.index +1
@@ -165,9 +161,7 @@ data class Music(var name: String, var song: MediaPlayer, var position: Int)
                 this.getMusic()
                 this.startMusic()
                 this.setInformation()
-
             }
-
         }
     }
 
@@ -214,12 +208,9 @@ data class Music(var name: String, var song: MediaPlayer, var position: Int)
                  kotlin.run {
                      this.updateThread()
                  }
-
              }
              handler?.postDelayed(runnable, 1000)
-
          }
-
      }
 
 
@@ -261,6 +252,18 @@ data class Music(var name: String, var song: MediaPlayer, var position: Int)
      }
 
 
+
+
+     private fun showRandomNumber() {
+         // Get the count from the intent extras
+         val count = intent.getIntExtra(EXTRA_VALUE, 0)
+
+
+         this.sectionIndex = count
+         idd.text = sectionIndex.toString()
+
+
+     }
 }
 
 

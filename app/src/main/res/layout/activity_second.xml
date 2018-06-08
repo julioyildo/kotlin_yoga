@@ -10,7 +10,7 @@
 
 
     <TextView
-        android:id="@+id/Title"
+        android:id="@+id/second_title"
         android:layout_width="0dp"
         android:layout_height="28dp"
         android:layout_marginEnd="8dp"
@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/second_description"
         android:layout_width="0dp"
         android:layout_height="39dp"
         android:layout_marginEnd="32dp"
@@ -39,7 +39,7 @@
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Title" />
+        app:layout_constraintTop_toBottomOf="@+id/second_title" />
 
 
     <android.support.constraint.ConstraintLayout
@@ -50,7 +50,7 @@
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toStartOf="@+id/wrapper_stressed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4">
+        app:layout_constraintTop_toBottomOf="@+id/second_description">
 
         <ImageView
             android:id="@+id/btn_sleep"
@@ -84,7 +84,7 @@
         <TextView
             android:id="@+id/btn_sleep_description"
             android:layout_width="wrap_content"
-            android:layout_height="16dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
@@ -141,7 +141,7 @@
         <TextView
             android:id="@+id/stressed_text"
             android:layout_width="87dp"
-            android:layout_height="16dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
@@ -250,7 +250,7 @@
         <TextView
             android:id="@+id/focused_text"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
@@ -353,7 +353,7 @@
         <TextView
             android:id="@+id/cheking_text"
             android:layout_width="92dp"
-            android:layout_height="22dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
